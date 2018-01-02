@@ -13,21 +13,14 @@
   },
   "description": "Javascript implementation of 24PAY payment system in Slovakia",
   "keywords": [
-    "bebusy",
-    "busy",
-    "work",
-    "console",
-    "random",
-    "twat",
-    "procrastination",
-    "fake",
-    "lazy",
-    "dithering",
-    "fun",
-    "terminal"
+    "24pay",
+    "payments",
+    "signing",
+    "slovakia",
+    "aes"
   ],
   "preferGlobal": true,
-  "version": "1.1.1",
+  "version": "1.2.4",
   "license": "MIT",
   "engines": {
     "node": ">=8"
