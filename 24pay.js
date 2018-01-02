@@ -1,34 +1,33 @@
 const crypto = require("crypto")
 const aesjs = require("aes-js")
 
-// MID demoOMED
-// ESHOPID 11111111
-// KEY 1234567812345678123456781234567812345678123456781234567812345678
+const fn = function (key, iv, text) {
+    // http://www.24-pay.sk/wp-content/uploads/24Pay-API-Integration.pdf
 
-// demoOMED0.50EUR529488TestovaciaPlatba2018-01-02 15:54:16
-// 718A3D1C6C88F89E753B2D600E0B55D4
+    if (!key || !iv || !text) {
+        return new Error("24pay: Missing mandatory fields")
+    }
 
-const key = "1234567812345678123456781234567812345678123456781234567812345678"
-const keyBytes = aesjs.utils.hex.toBytes(key)
-console.info("keyBytes", keyBytes + "") // 18,52,86,120,18,52,86,120,18,52,...
+    // convert string KEY and IV to array of character bytes
+    const keyBytes = aesjs.utils.hex.toBytes(key)
+    const ivBytes = aesjs.utils.utf8.toBytes(iv)
 
-const iv = "DemoOMEDDEMOomeD"
-const ivBytes = aesjs.utils.utf8.toBytes(iv)
-console.info("ivBytes", ivBytes + "") // 100,101,109,111,79,77,69,68,68,69,...
+    // create a hash (in HEX) with SHA1 and cut if from 40 to 32 characters
+    const textHashHex = crypto.createHash("sha1").update(text).digest("hex")
 
-const text = "DemoOMED1.00EUR1234567890JožkoMrkvička2014-12-01 13:00:00"
-const textHashHex = crypto.createHash("sha1").update(text).digest("hex").substr(0, 32)
-const textHashBytes = aesjs.utils.hex.toBytes(textHashHex)
-console.info("textHashBytes", textHashBytes + "") // 157,175,48,14,65,143,147,64,243,..
+    // cut it to 32 characters to make it possible for CBC and bypass padding
+    // afterward convert it to an array of character bytes
+    const shortHash = textHashHex.substr(0, 32)
+    const textHashBytes = aesjs.utils.hex.toBytes(shortHash)
 
-const aesCbc = new aesjs.ModeOfOperation.cbc(keyBytes, ivBytes, 16)
-const encryptedBytes = aesCbc.encrypt(textHashBytes)
-const encryptedHex = aesjs.utils.hex.fromBytes(encryptedBytes)
+    // create an instance of AES CBC (cipher-block chaining) and convert it to array of chars
+    // https://www.npmjs.com/package/aes-js
+    const aesCbc = new aesjs.ModeOfOperation.cbc(keyBytes, ivBytes, 16)
+    const encryptedBytes = aesCbc.encrypt(textHashBytes)
+    const encryptedHex = aesjs.utils.hex.fromBytes(encryptedBytes)
 
-console.info("encryptedHex", encryptedHex.toUpperCase()) // 718A3D1C6C88F89E753B2D600E0B55D4
+    // requested convention
+    return encryptedHex.toUpperCase()
+}
 
-module.exports = function(options) {
-
-    return new BeBusy(options);
-
-};
+module.exports.p24 = fn
