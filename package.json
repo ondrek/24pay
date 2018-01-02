@@ -1,0 +1,41 @@
+{
+  "name": "24pay",
+  "subdomain": "24pay",
+  "main": "./24pay",
+  "homepage": "https://www.npmjs.org/package/24pay",
+  "author": "Samuel Ondrek (http://github.com/ondrek/)",
+  "bugs": {
+    "url": "https://github.com/ondrek/24pay/issues/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ondrek/bebusy.git"
+  },
+  "description": "Fakes developer's activity by printing random messages into the Terminal, so you look busy like compiling some important shit.",
+  "keywords": [
+    "bebusy",
+    "busy",
+    "work",
+    "console",
+    "random",
+    "twat",
+    "procrastination",
+    "fake",
+    "lazy",
+    "dithering",
+    "fun",
+    "terminal"
+  ],
+  "preferGlobal": true,
+  "version": "1.1.0",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "test": "./24pay.js"
+  },
+  "dependencies": {
+    "aes-js": "3.1.0"
+  }
+}
