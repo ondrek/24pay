@@ -3,15 +3,15 @@
   "subdomain": "24pay",
   "main": "./24pay",
   "homepage": "https://www.npmjs.org/package/24pay",
-  "author": "Samuel Ondrek (http://github.com/ondrek/)",
+  "author": "Samuel Ondrek",
   "bugs": {
     "url": "https://github.com/ondrek/24pay/issues/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ondrek/bebusy.git"
+    "url": "https://github.com/ondrek/24pay.git"
   },
-  "description": "Fakes developer's activity by printing random messages into the Terminal, so you look busy like compiling some important shit.",
+  "description": "Javascript implementation of 24PAY payment system in Slovakia",
   "keywords": [
     "bebusy",
     "busy",

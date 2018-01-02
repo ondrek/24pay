@@ -2,57 +2,15 @@
 
 <br/>
 
-## What does it look like?
+https://www.npmjs.com/package/24pay
 
-![Functionality](https://rawgit.com/ondrek/bebusy.js/master/graphs/functionality.gif)
+```
+import { p24 } from "24pay"
 
-<br/><br/>
-
-## You shall use this plugin, when you ..
- .. are a lazy motherfucker who browses cats on Facebook<br/>
- .. have a project deadline straight ahead<br/>
- .. read a lot of blogs about productivity while procrastinating<br/>
-
-![what if I told you, you are useless piece of shit?](https://rawgit.com/ondrek/bebusy.js/master/graphs/morpheus.jpg?2)
-
-
-<br/><br/>
-
-## How to install this bastardizations?
-
-    > sudo npm install -g bebusy
-    > bebusy
-
-![Functionality](https://rawgit.com/ondrek/bebusy.js/master/graphs/gollum.jpg)
-
-<br/><br/>
-
-## Feedback from fans
-
- > “OMG your bebusy lib is awesome,<br/>
- > I'll install it at work tomorrow so that I can work on my presentation for Thursday”<br/>
- > — [Olivier X.](https://twitter.com/OCombe/status/526493222554857472)
+const signed = p24(mid, text, key)
+console.info(signed) // 718A3D1C6C88F89E753B2D600E0B55D4
+```
 
 <br/>
 
- > This is a python script that printing random messages into your Terminal,<br/>
- > so you look very busy, inspired by bebusy.js. You are gonna love it.<br/>
- > — [bebusy.py](https://github.com/skyline75489/bebusy.py) by skyline75489
-
-<br/>
-
- > Sometimes I just run Bebusy and masturbate at work. My boss and my colleagues<br/>
- > never figured out! Thanks, BeBusy!<br/>
- > — No one
-
-
-<br/><br/>
-
-## Developer's productivity based on time
-
-![Productivity image](https://rawgit.com/ondrek/bebusy.js/master/graphs/productivity-2.png?abc)
-
-<br/><br/>
-
-Coded by Samuel [Ondrek](https://ondrek.com) & inspirated by [Pablo](https://twitter.com/Puigcerber) in Paris.<br/>
-~~If~~ When you find yourself fired, please don't contact me.
+Author Samuel Ondrek
