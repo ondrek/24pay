@@ -30,4 +30,19 @@ const fn = function (key, iv, text) {
     return encryptedHex.toUpperCase()
 }
 
-module.exports.p24 = fn
+const checkParams = function (key, iv, text) {
+  if (!key || !iv || !text) {
+    return new Error("24pay: Missing key parameter")
+  }
+
+  if (!key || !iv || !text) {
+    return new Error("24pay: Missing iv parameter")
+  }
+
+  if (!key || !iv || !text) {
+    return new Error("24pay: Missing text parameter")
+  }
+
+}
+
+module.exports = fn
